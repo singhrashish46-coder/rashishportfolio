@@ -232,7 +232,7 @@ export default function Home() {
                 Project Archive
               </span>
               <h2 style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 700, marginBottom: 16, lineHeight: 1.15 }}>
-                100+ small &amp; medium projects, <span className="gradient-text">all in one Drive</span>
+                100+  &amp; medium/medium large projects, <span className="gradient-text">all in one Drive</span>
               </h2>
               <p style={{ color: "var(--muted)", fontSize: "1rem", maxWidth: 520, lineHeight: 1.75 }}>
                 Beyond the featured builds on this site, I keep a running archive of every experiment, AI script, and side project I've shipped — source code included. Browse the full collection on Google Drive.
