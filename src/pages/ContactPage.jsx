@@ -10,7 +10,7 @@ import SectionHeading from "../components/SectionHeading.jsx";
 const FORMSPREE_ID = ""; // ← paste your Formspree form ID here (e.g. "xpwzlkjr")
 // ──────────────────────────────────────────────────────────────────────────────
 
-const YOUR_EMAIL = "rashishsingh@example.com"; // ← update this
+const YOUR_EMAIL = "Rashishreshu@gmail.com";
 
 const socials = [
   { icon: <FiMail />,     label: "Email",    value: YOUR_EMAIL,                   href: `mailto:${YOUR_EMAIL}` },
