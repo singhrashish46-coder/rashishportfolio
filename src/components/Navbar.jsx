@@ -98,7 +98,7 @@ export default function Navbar() {
           onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "scale(1.03)"; }}
           onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "scale(1)"; }}
         >
-          Hire Me ↗
+          Contact me? ↗
         </Link>
       </div>
 
