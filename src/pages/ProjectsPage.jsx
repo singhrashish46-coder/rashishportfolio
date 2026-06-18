@@ -12,7 +12,7 @@ const statusMeta = {
 
 const projects = [
   {
-    id: 1,
+    id: 7,
     title: "AI Stock Predictor",
     badge: "Deep Learning",
     description: "LSTM/RNN-based model that forecasts stock prices using historical data, sentiment analysis, and technical indicators. Includes a React dashboard with real-time charts.",
@@ -22,7 +22,7 @@ const projects = [
     made: "2024",
   },
   {
-    id: 2,
+    id: 8,
     title: "n8n Automation Hub",
     badge: "Automation",
     description: "A collection of 20+ production-grade n8n workflows automating tasks like lead scraping, email campaigns, Discord bots, and CRM syncing.",
@@ -72,7 +72,7 @@ const projects = [
     made: "2025",
   },
   {
-    id: 7,
+    id: 1,
     title: "SnakeEngine",
     badge: "EdTech",
     description: "Built for every student who felt lost drowning in coding tutorials and scattered resources — exactly where I was 2 years ago. SnakeEngine is a self-paced learning platform that lets people find structured, bite-sized coding paths so they actually make progress instead of just collecting bookmarks.",
@@ -82,7 +82,7 @@ const projects = [
     made: "2024",
   },
   {
-    id: 8,
+    id: 2,
     title: "Dating App",
     badge: "Full-Stack",
     description: "A real-world dating app I'm actively building and improving. Not on a daily schedule — JEE prep comes first — but it's growing spontaneously with new features whenever I get the time. Live and functional.",
