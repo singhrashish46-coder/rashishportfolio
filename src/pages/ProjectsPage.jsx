@@ -12,6 +12,26 @@ const statusMeta = {
 
 const projects = [
   {
+    id: 1,
+    title: "SnakeEngine",
+    badge: "EdTech",
+    description: "Built for every student who felt lost drowning in coding tutorials and scattered resources — exactly where I was 2 years ago. SnakeEngine is a self-paced learning platform that lets people find structured, bite-sized coding paths so they actually make progress instead of just collecting bookmarks.",
+    tech: ["React", "Node.js", "Vercel"],
+    status: "live",
+    link: "https://snakeengine.vercel.app",
+    made: "2024",
+  },
+  {
+    id: 2,
+    title: "Dating App",
+    badge: "Full-Stack",
+    description: "A real-world dating app I'm actively building and improving. Not on a daily schedule — JEE prep comes first — but it's growing spontaneously with new features whenever I get the time. Live and functional.",
+    tech: ["React", "Node.js", "Express", "Railway"],
+    status: "wip",
+    link: "https://datingapp-production-2362.up.railway.app/",
+    made: "2025",
+  },
+  {
     id: 7,
     title: "AI Stock Predictor",
     badge: "Deep Learning",
@@ -71,26 +91,7 @@ const projects = [
     link: "",
     made: "2025",
   },
-  {
-    id: 1,
-    title: "SnakeEngine",
-    badge: "EdTech",
-    description: "Built for every student who felt lost drowning in coding tutorials and scattered resources — exactly where I was 2 years ago. SnakeEngine is a self-paced learning platform that lets people find structured, bite-sized coding paths so they actually make progress instead of just collecting bookmarks.",
-    tech: ["React", "Node.js", "Vercel"],
-    status: "live",
-    link: "https://snakeengine.vercel.app",
-    made: "2024",
-  },
-  {
-    id: 2,
-    title: "Dating App",
-    badge: "Full-Stack",
-    description: "A real-world dating app I'm actively building and improving. Not on a daily schedule — JEE prep comes first — but it's growing spontaneously with new features whenever I get the time. Live and functional.",
-    tech: ["React", "Node.js", "Express", "Railway"],
-    status: "wip",
-    link: "https://datingapp-production-2362.up.railway.app/",
-    made: "2025",
-  },
+  
   {
     id: 3,
     title: "Math for ML & AI — From Scratch",
