@@ -91,6 +91,16 @@ const projects = [
     link: "https://datingapp-production-2362.up.railway.app/",
     made: "2025",
   },
+  {
+    id: 3,
+    title: "Math for ML & AI — From Scratch",
+    badge: "Mathematics",
+    description: "The exact math you actually need to understand ML and Deep Learning — not just use it. Covers Linear Algebra (vectors, matrices, eigenvalues, SVD), Calculus (derivatives, chain rule, partial derivatives, gradients), Probability & Statistics (Bayes, distributions, MLE, entropy), and Optimization (gradient descent, convexity, Lagrange multipliers). All built with 11th–12th level intuition first, then extended to how it's used inside neural networks, backprop, attention, and more. No hand-waving — real understanding from ground up.",
+    tech: ["Linear Algebra", "Calculus", "Probability", "Optimization", "Backprop Math"],
+    status: "wip",
+    link: "",
+    made: "done in 2025 and still in learning process ",
+  },
 
 ];
 
