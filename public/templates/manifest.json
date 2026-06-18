@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "filename": "llm_chat.py",
+    "title": "LLM Chat Wrapper (OpenAI / Groq / Ollama)",
+    "category": "AI Engineering",
+    "tags": ["Python", "OpenAI SDK", "Streaming", "LLMs"],
+    "description": "Drop-in Python wrapper for any OpenAI-compatible API (OpenAI, Groq, Together, local Ollama). Handles streaming, retries, and system prompts. Swap the base_url to change provider.",
+    "explanation": "This is the foundation of every LLM app you'll build.\n• Uses openai>=1.0 SDK which works for OpenAI, Groq, Together.ai, and local Ollama.\n• stream=True yields tokens as they arrive — critical for UX.\n• Retry logic (tenacity) handles rate-limit 429 errors automatically.\n• Change base_url + api_key to switch providers without touching the rest of your code."
+  },
+  {
+    "id": 2,
+    "filename": "rag_pipeline.py",
+    "title": "RAG Pipeline (Retrieval-Augmented Generation)",
+    "category": "AI Engineering",
+    "tags": ["Python", "ChromaDB", "Embeddings", "RAG"],
+    "description": "Minimal but production-ready RAG: chunk a PDF, embed with OpenAI, store in ChromaDB, and answer questions with cited sources. The pattern behind most AI assistants.",
+    "explanation": "RAG = give the LLM relevant context from YOUR documents instead of relying on training data.\nSteps:\n  1. Chunk  — split text into ~500 word pieces with overlap so sentences aren't cut.\n  2. Embed  — convert each chunk to a vector (1536-dim for text-embedding-3-small).\n  3. Store  — save vectors in ChromaDB (local, no server needed).\n  4. Query  — embed the question, find top-k similar chunks (cosine similarity).\n  5. Prompt — inject chunks into the LLM context and ask it to answer.\nWhy this matters: the LLM can now answer from private documents it was never trained on."
+  },
+  {
+    "id": 3,
+    "filename": "prompt_toolkit.py",
+    "title": "Prompt Engineering Toolkit",
+    "category": "AI Engineering",
+    "tags": ["Python", "Prompt Engineering", "JSON Mode", "CoT"],
+    "description": "A collection of battle-tested prompt patterns: Chain-of-Thought, few-shot, JSON-mode structured output, and self-consistency. Copy the pattern you need.",
+    "explanation": "Prompt engineering is how you control LLM behaviour without fine-tuning.\nPatterns included:\n  • Chain-of-Thought (CoT) — add \"Think step by step\" to improve reasoning accuracy on math/logic.\n  • Few-Shot          — provide 2-3 examples so the model learns your output format.\n  • JSON Mode         — force the model to return valid JSON (no markdown fences).\n  • Self-Consistency  — run the same prompt N times, take the majority answer (reduces hallucination).\nRule of thumb: CoT for reasoning, few-shot for format, JSON mode for structured data, self-consistency for high-stakes single answers."
+  },
+  {
+    "id": 4,
+    "filename": "ai_agent.py",
+    "title": "AI Agent with Tool Calling",
+    "category": "AI Engineering",
+    "tags": ["Python", "Tool Calling", "Agents", "ReAct"],
+    "description": "A minimal ReAct-style agent that can call real Python functions (tools) — search, calculate, fetch URLs. The exact pattern used in production AI assistants and AutoGPT-style systems.",
+    "explanation": "Agents = LLMs that can take actions, not just generate text.\nHow this works (ReAct loop):\n  1. You define tools as Python functions with type hints.\n  2. You pass their signatures to the LLM via the \"tools\" parameter.\n  3. The LLM decides which tool to call and with what arguments.\n  4. Your code executes the function and sends the result back.\n  5. Repeat until the LLM gives a final answer with no tool call.\nThis is how ChatGPT plugins, Claude tools, and Copilot work under the hood.\nKey insight: the LLM never runs code — it only decides WHAT to run."
+  },
+  {
+    "id": 5,
+    "filename": "finetune_formatter.py",
+    "title": "Fine-Tuning Data Formatter (JSONL)",
+    "category": "AI Engineering",
+    "tags": ["Python", "Fine-tuning", "JSONL", "OpenAI"],
+    "description": "Convert raw Q&A pairs into the JSONL format required by OpenAI fine-tuning. Includes token counting, train/val split, and upload to the Files API — ready to fire off a fine-tune job.",
+    "explanation": "Fine-tuning = training a model on YOUR data so it adopts your style/domain.\nWhen to fine-tune (not RAG):\n  • You need a consistent tone/style (customer support bot).\n  • Domain vocab the base model doesn't know (medical, legal, niche).\n  • Latency matters and you can't afford long system prompts.\nThis script:\n  1. Takes a list of {prompt, response} pairs.\n  2. Formats them into OpenAI's required chat JSONL structure.\n  3. Counts tokens so you can estimate cost.\n  4. Splits 90/10 train/val and uploads both to the Files API.\n  5. Starts the fine-tune job — you get a model ID back in a few hours."
+  },
+  {
+    "id": 6,
+    "filename": "vector_search.py",
+    "title": "Vector Similarity Search from Scratch",
+    "category": "AI Engineering",
+    "tags": ["Python", "NumPy", "Embeddings", "FAISS"],
+    "description": "Understand how embedding search ACTUALLY works by building cosine similarity from scratch with NumPy — no ChromaDB, no FAISS. Then see how to scale it with FAISS for millions of vectors.",
+    "explanation": "Before you use ChromaDB or Pinecone, understand what they're doing.\nThis template has 3 parts:\n  Part A — Cosine similarity from scratch with NumPy.\n          cos(A, B) = (A · B) / (||A|| × ||B||)\n  Part B — Brute-force k-NN: embed a query, compare to all stored vectors. O(n·d).\n  Part C — FAISS for scale: builds an index so search is O(log n) not O(n).\nKey insight: all vector databases (ChromaDB, Pinecone, Weaviate) are just fast implementations of this."
+  }
+]
