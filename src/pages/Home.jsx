@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
+ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
+import { FiArrowRight, FiDownload, FiFolder, FiExternalLink } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 import rashishImg from "../assets/Rashish.png";
 
@@ -20,6 +20,9 @@ const stats = [
   { value: "17", label: "Years Old" },
   { value: "JEE", label: "2026 Aspirant" },
 ];
+
+const DRIVE_FOLDER_URL =
+  "https://drive.google.com/drive/folders/1oL5V6_aPhDHERAtxESInwhoHD8i8I7ut?usp=drive_link";
 
 function SkillBar({ name, level, color, i }) {
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -43,6 +46,7 @@ function SkillBar({ name, level, color, i }) {
 
 export default function Home() {
   const [aboutRef, aboutInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [archiveRef, archiveInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <main>
@@ -191,6 +195,76 @@ export default function Home() {
           <div style={{ maxWidth: 700 }}>
             {skills.map((s, i) => <SkillBar key={s.name} {...s} i={i} />)}
           </div>
+        </div>
+      </section>
+
+      {/* PROJECT ARCHIVE — GOOGLE DRIVE */}
+      <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)" }}>
+        <div className="container">
+          <motion.div
+            ref={archiveRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={archiveInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: 24,
+              border: "1px solid var(--border)",
+              background: "linear-gradient(135deg, rgba(139,92,246,0.08), rgba(99,102,241,0.04))",
+              padding: "56px 6%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 32,
+              flexWrap: "wrap",
+            }}
+          >
+            <div style={{
+              position: "absolute", bottom: "-20%", left: "-5%",
+              width: 360, height: 360,
+              background: "radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%)",
+              pointerEvents: "none",
+            }} />
+
+            <div style={{ flex: "1 1 380px", position: "relative" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", color: "var(--violet)", letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 10 }}>
+                Project Archive
+              </span>
+              <h2 style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 700, marginBottom: 16, lineHeight: 1.15 }}>
+                100+ small &amp; medium projects, <span className="gradient-text">all in one Drive</span>
+              </h2>
+              <p style={{ color: "var(--muted)", fontSize: "1rem", maxWidth: 520, lineHeight: 1.75 }}>
+                Beyond the featured builds on this site, I keep a running archive of every experiment, AI script, and side project I've shipped — source code included. Browse the full collection on Google Drive.
+              </p>
+            </div>
+
+            <motion.a
+              href={DRIVE_FOLDER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                flex: "0 0 auto",
+                position: "relative",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "linear-gradient(135deg, var(--violet), #6366f1)",
+                color: "white",
+                padding: "16px 32px",
+                borderRadius: 12,
+                fontWeight: 600,
+                fontSize: "1rem",
+                boxShadow: "0 8px 30px rgba(139,92,246,0.3)",
+              }}
+            >
+              <FiFolder size={18} />
+              Browse All Projects
+              <FiExternalLink size={16} />
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
