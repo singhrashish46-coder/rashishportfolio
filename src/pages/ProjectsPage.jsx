@@ -66,11 +66,32 @@ const projects = [
     title: "Advanced Recommender",
     badge: "ML",
     description: "Hybrid recommendation engine combining collaborative filtering and content-based methods. Currently integrating deep learning layers for improved accuracy.",
-    tech: ["Python", "Scikit-learn", "Pandas", "Flask"],
+    tech: ["Python", "Scikit-learn", "Pandas", "Flask", 'html', 'css', 'script'],
     status: "wip",
     link: "",
     made: "2025",
   },
+  {
+    id: 7,
+    title: "SnakeEngine",
+    badge: "EdTech",
+    description: "Built for every student who felt lost drowning in coding tutorials and scattered resources — exactly where I was 2 years ago. SnakeEngine is a self-paced learning platform that lets people find structured, bite-sized coding paths so they actually make progress instead of just collecting bookmarks.",
+    tech: ["React", "Node.js", "Vercel"],
+    status: "live",
+    link: "https://snakeengine.vercel.app",
+    made: "2024",
+  },
+  {
+    id: 8,
+    title: "Dating App",
+    badge: "Full-Stack",
+    description: "A real-world dating app I'm actively building and improving. Not on a daily schedule — JEE prep comes first — but it's growing spontaneously with new features whenever I get the time. Live and functional.",
+    tech: ["React", "Node.js", "Express", "Railway"],
+    status: "wip",
+    link: "https://datingapp-production-2362.up.railway.app/",
+    made: "2025",
+  },
+
 ];
 
 export default function ProjectsPage() {
