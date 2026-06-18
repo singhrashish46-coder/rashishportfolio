@@ -47,14 +47,16 @@ export default function Home() {
   return (
     <main>
       {/* HERO */}
-      <section style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        padding: "80px 6% 60px",
-        position: "relative",
-        overflow: "hidden",
-      }}>
+      <section
+        className="hero-section"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "80px 6% 60px",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
         {/* Glow orb */}
         <div style={{
           position: "absolute", top: "20%", right: "10%",
@@ -63,9 +65,10 @@ export default function Home() {
           pointerEvents: "none",
         }} />
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", gap: 40, flexWrap: "wrap" }}>
+        <div className="hero-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", gap: 40, flexWrap: "wrap" }}>
           {/* Text */}
           <motion.div
+            className="hero-text"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -104,7 +107,7 @@ export default function Home() {
               17-year-old developer with 2+ years of hands-on experience in Deep Learning (LSTMs, RNNs) and Full-Stack development. Built <strong style={{ color: "var(--violet2)" }}>10+ fully advanced projects</strong> throughout my journey — from production-level apps to AI systems — while crushing PCM for JEE Advanced.
             </p>
 
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+            <div className="hero-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <Link to="/projects" style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "linear-gradient(135deg, var(--violet), #6366f1)",
@@ -134,6 +137,7 @@ export default function Home() {
 
           {/* Photo */}
           <motion.div
+            className="hero-photo"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
@@ -196,6 +200,45 @@ export default function Home() {
 
       <style>{`
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* Base hero height — 100vh fallback, 100svh on browsers that support it
+           (fixes iOS Safari address-bar jump/cut-off content on iPhone) */
+        .hero-section {
+          min-height: 100vh;
+        }
+        @supports (height: 100svh) {
+          .hero-section {
+            min-height: 100svh;
+          }
+        }
+
+        /* Phone / iPhone: stack vertically and show the photo FIRST, text below */
+        @media (max-width: 768px) {
+          .hero-row {
+            flex-direction: column;
+            text-align: center;
+          }
+          .hero-photo {
+            order: -1;
+            margin: 0 auto 28px;
+          }
+          .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-buttons {
+            justify-content: center;
+          }
+        }
+
+        /* Small phones: trim top padding and respect the iPhone notch / status bar */
+        @media (max-width: 480px) {
+          .hero-section {
+            padding-top: max(56px, calc(env(safe-area-inset-top) + 24px));
+            padding-bottom: 48px;
+          }
+        }
       `}</style>
     </main>
   );
