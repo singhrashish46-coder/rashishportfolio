@@ -121,18 +121,7 @@ export default function Home() {
               >
                 View Projects <FiArrowRight />
               </Link>
-              <a href="/resume.pdf" download style={{
-                display: "inline-flex", alignItems: "center", gap: 8,
-                border: "1px solid var(--border)", color: "var(--text)",
-                padding: "13px 28px", borderRadius: 10,
-                fontWeight: 500, fontSize: "0.95rem",
-                transition: "border-color 0.2s, background 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--violet)"; e.currentTarget.style.background = "rgba(139,92,246,0.07)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.background = "transparent"; }}
-              >
-                Resume <FiDownload />
-              </a>
+              
             </div>
           </motion.div>
 
